@@ -5,9 +5,6 @@ import './App.css'
 import Neis from 'neis.ts'
 import { Logger } from 'tslog'
 import RealtimeMealChart from './components/RealtimeMealChart'
-import { MathJax, MathJaxContext } from "better-react-mathjax";
-import { Checkbox } from "@/components/ui/checkbox"
-import { Switch } from "@/components/ui/switch"
 
 
 
@@ -40,8 +37,7 @@ function App() {
 
 
   return (
-    <MathJaxContext version={3}>
-      <MathJax>
+    <div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -64,13 +60,10 @@ function App() {
       </p>
 
       <h1 className='text-4xl font-sans font-bold'>실시간 급식실 혼잡도</h1>
-      <Checkbox />
-      <Switch />
       <div className='font-sans'>
       <RealtimeMealChart />
       </div>
-      </MathJax>  
-    </MathJaxContext>
+    </div>      
   )
 }
 
