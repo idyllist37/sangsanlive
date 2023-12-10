@@ -16,6 +16,8 @@ const RealtimeMealChart = () => {
 
   useEffect(() => {
     getPeople();
+    const interval = setInterval(getPeople, 5000); // Fetch new data every 5 seconds
+    return () => clearInterval(interval); // Clean up the interval on component unmount
   }, []);
 
   async function getPeople() {
@@ -41,7 +43,6 @@ const RealtimeMealChart = () => {
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Legend />
         <Line
           type="monotone"
           dataKey="num_of_people"
@@ -49,6 +50,7 @@ const RealtimeMealChart = () => {
           stroke="#000000"
           activeDot={{ r: 8 }}
         />
+        <Legend />
       </LineChart>
     </ResponsiveContainer>
   )
